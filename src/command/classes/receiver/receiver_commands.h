@@ -5,10 +5,14 @@
 #include "command.h"
 #include "receiver.h"
 
-struct MoveLeftCommand : public Command {
+struct ReceiverCommand : public Command {
     Receiver& player_;
 
-    MoveLeftCommand(Receiver& player) : player_{player} {}
+    ReceiverCommand(Receiver& player) : player_{player} {}
+};
+
+struct MoveLeftCommand : public ReceiverCommand {
+    MoveLeftCommand(Receiver& player) : ReceiverCommand{player} {}
 
     void execute() override {
         spdlog::debug("MoveLeftCommand");
@@ -16,10 +20,8 @@ struct MoveLeftCommand : public Command {
     }
 };
 
-struct MoveRightCommand : public Command {
-    Receiver& player_;
-
-    MoveRightCommand(Receiver& player) : player_{player} {}
+struct MoveRightCommand : public ReceiverCommand {
+    MoveRightCommand(Receiver& player) : ReceiverCommand{player} {}
 
     void execute() override {
         spdlog::debug("MoveRightCommand");
@@ -27,10 +29,8 @@ struct MoveRightCommand : public Command {
     }
 };
 
-struct OpenDoorCommand : public Command {
-    Receiver& player_;
-
-    OpenDoorCommand(Receiver& player) : player_{player} {}
+struct OpenDoorCommand : public ReceiverCommand {
+    OpenDoorCommand(Receiver& player) : ReceiverCommand{player} {}
 
     void execute() override {
         spdlog::debug("OpenDoorCommand");
@@ -38,10 +38,8 @@ struct OpenDoorCommand : public Command {
     }
 };
 
-struct PickupGoldCommand : public Command {
-    Receiver& player_;
-
-    PickupGoldCommand(Receiver& player) : player_{player} {}
+struct PickupGoldCommand : public ReceiverCommand {
+    PickupGoldCommand(Receiver& player) : ReceiverCommand{player} {}
 
     void execute() override {
         spdlog::debug("PickupGoldCommand");
