@@ -1,12 +1,13 @@
 #pragma once
 
+#include <memory>
 #include <unordered_map>
 
 #include "command.h"
 #include "keyboard_events.h"
 
 class Invoker {
-    std::unordered_map<KeyPressedEvent, Command*> commands_;
+    std::unordered_map<KeyPressedEvent, std::unique_ptr<Command>> commands_;
 
 public:
     Invoker();
