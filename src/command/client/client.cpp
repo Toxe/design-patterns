@@ -7,17 +7,11 @@
 
 void Client::setup()
 {
-    QuitCommand* quit_command = new QuitCommand();
-    MoveLeftCommand* move_left_command = new MoveLeftCommand(player_);
-    MoveRightCommand* move_right_command = new MoveRightCommand(player_);
-    OpenDoorCommand* open_door_command = new OpenDoorCommand(player_);
-    PickupGoldCommand* pickup_gold_command = new PickupGoldCommand(player_);
-
-    input_handler_.set_command(KeyPressedEvent::G, pickup_gold_command);
-    input_handler_.set_command(KeyPressedEvent::O, open_door_command);
-    input_handler_.set_command(KeyPressedEvent::Escape, quit_command);
-    input_handler_.set_command(KeyPressedEvent::Left, move_left_command);
-    input_handler_.set_command(KeyPressedEvent::Right, move_right_command);
+    input_handler_.set_command(KeyPressedEvent::Escape, new QuitCommand());
+    input_handler_.set_command(KeyPressedEvent::G, new PickupGoldCommand(player_));
+    input_handler_.set_command(KeyPressedEvent::O, new OpenDoorCommand(player_));
+    input_handler_.set_command(KeyPressedEvent::Left, new MoveLeftCommand(player_));
+    input_handler_.set_command(KeyPressedEvent::Right, new MoveRightCommand(player_));
 }
 
 void Client::run()
