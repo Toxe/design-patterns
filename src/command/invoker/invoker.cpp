@@ -1,7 +1,5 @@
 #include "invoker.h"
 
-#include <stdexcept>
-
 Invoker::Invoker()
 {
     commands_[KeyPressedEvent::G]      = std::make_unique<NoCommand>();
