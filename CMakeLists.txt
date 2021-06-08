@@ -17,5 +17,5 @@ include(cmake/Sanitizers.cmake)
 
 find_package(fmt CONFIG REQUIRED)
 
-add_subdirectory(src/command/classes)
-add_subdirectory(src/command/functions)
+add_subdirectory(src/command/examples/classes)
+add_subdirectory(src/command/examples/functions)
