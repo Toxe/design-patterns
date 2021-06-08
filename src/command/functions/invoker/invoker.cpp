@@ -1,8 +1,8 @@
 #include "invoker.h"
 
-#include <spdlog/spdlog.h>
+#include <fmt/core.h>
 
-Command no_command = [] { spdlog::debug("NoCommand"); };
+Command no_command = [] { fmt::print("NoCommand\n"); };
 
 Invoker::Invoker()
 {

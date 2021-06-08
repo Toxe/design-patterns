@@ -1,9 +1,5 @@
 #include "client.h"
 
-#include <cstdlib>
-
-#include <spdlog/spdlog.h>
-
 #include "client_commands.h"
 #include "keyboard_events.h"
 #include "receiver/receiver_commands.h"

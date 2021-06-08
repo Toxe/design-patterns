@@ -2,11 +2,11 @@
 
 #include <cstdlib>
 
-#include <spdlog/spdlog.h>
+#include <fmt/core.h>
 
 #include "command.h"
 
 Command quit_command = [] {
-    spdlog::debug("QuitCommand");
+    fmt::print("QuitCommand\n");
     std::exit(1);
 };

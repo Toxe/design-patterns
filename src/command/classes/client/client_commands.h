@@ -2,13 +2,13 @@
 
 #include <cstdlib>
 
-#include <spdlog/spdlog.h>
+#include <fmt/core.h>
 
 #include "command.h"
 
 struct QuitCommand : public Command {
     void execute() override {
-        spdlog::debug("QuitCommand");
+        fmt::print("QuitCommand\n");
         std::exit(1);
     }
 };

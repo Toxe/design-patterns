@@ -1,6 +1,6 @@
 #pragma once
 
-#include <spdlog/spdlog.h>
+#include <fmt/core.h>
 
 struct Command {
     virtual ~Command() = default;
@@ -9,6 +9,6 @@ struct Command {
 
 struct NoCommand : public Command {
     void execute() override {
-        spdlog::debug("NoCommand");
+        fmt::print("NoCommand\n");
     }
 };

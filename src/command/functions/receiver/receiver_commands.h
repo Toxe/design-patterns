@@ -1,6 +1,6 @@
 #pragma once
 
-#include <spdlog/spdlog.h>
+#include <fmt/core.h>
 
 #include "command.h"
 #include "receiver.h"
@@ -8,7 +8,7 @@
 Command MoveLeftCommand(Receiver& player)
 {
     return [&] {
-        spdlog::debug("MoveLeftCommand");
+        fmt::print("MoveLeftCommand\n");
         player.move(-1);
     };
 }
@@ -16,7 +16,7 @@ Command MoveLeftCommand(Receiver& player)
 Command MoveRightCommand(Receiver& player)
 {
     return [&] {
-        spdlog::debug("MoveRightCommand");
+        fmt::print("MoveRightCommand\n");
         player.move(1);
     };
 }
@@ -24,7 +24,7 @@ Command MoveRightCommand(Receiver& player)
 Command OpenDoorCommand(Receiver& player)
 {
     return [&] {
-        spdlog::debug("OpenDoorCommand");
+        fmt::print("OpenDoorCommand\n");
         player.open_door();
     };
 }
@@ -32,7 +32,7 @@ Command OpenDoorCommand(Receiver& player)
 Command PickupGoldCommand(Receiver& player)
 {
     return [&] {
-        spdlog::debug("PickupGoldCommand");
+        fmt::print("PickupGoldCommand\n");
         player.pickup_gold(10);
     };
 }
