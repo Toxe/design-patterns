@@ -17,3 +17,6 @@ target_compile_features(abstract_factory PUBLIC cxx_std_20)
 target_compile_options(abstract_factory PRIVATE ${SANITIZER_FLAGS} ${DEFAULT_COMPILER_OPTIONS_AND_WARNINGS})
 target_include_directories(abstract_factory PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} include)
 target_link_libraries(abstract_factory PRIVATE ${SANITIZER_FLAGS} fmt::fmt)
+
+# copy to build directory
+add_custom_command(TARGET abstract_factory POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:abstract_factory> ${CMAKE_BINARY_DIR})
