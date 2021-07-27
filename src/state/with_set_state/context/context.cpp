@@ -3,7 +3,7 @@
 #include "concrete_states/concrete_state_a.h"
 #include "state/state.h"
 
-Context::Context() : state_{new ConcreteStateA} { }
+Context::Context() : state_{std::make_unique<ConcreteStateA>()} { }
 
 void Context::set_state(std::unique_ptr<State> new_state)
 {
