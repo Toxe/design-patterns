@@ -5,6 +5,6 @@
 
 void ConcreteStateC::request3(Context* context)
 {
-    show_transition_message("request1", "A");
+    show_transition_message("request3", "A");
     context->set_state(std::make_unique<ConcreteStateA>());
 }
