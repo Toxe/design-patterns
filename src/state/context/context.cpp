@@ -5,7 +5,7 @@
 
 Context::Context() : state_{new ConcreteStateA} { }
 
-void Context::change_state(std::unique_ptr<State> new_state)
+void Context::set_state(std::unique_ptr<State> new_state)
 {
     state_ = std::move(new_state);
 }

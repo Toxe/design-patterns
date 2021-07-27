@@ -10,7 +10,7 @@ class Context {
 public:
     Context();
 
-    void change_state(std::unique_ptr<State> new_state);
+    void set_state(std::unique_ptr<State> new_state);
 
     void request1();
     void request2();
