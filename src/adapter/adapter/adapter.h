@@ -1,7 +1,8 @@
 #pragma once
 
-#include "adaptee/adaptee.h"
 #include "target/target.h"
+
+class Adaptee;
 
 class Adapter : public Target {
     Adaptee& adaptee_;
