@@ -4,6 +4,5 @@
 
 std::unique_ptr<State> ConcreteStateB::request2()
 {
-    show_transition_message("request2", "C");
     return std::make_unique<ConcreteStateC>();
 }

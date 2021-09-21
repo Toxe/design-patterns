@@ -14,6 +14,8 @@ public:
 
     virtual ~State() = default;
 
+    const char* name() const { return name_; };
+
     virtual std::unique_ptr<State> request1();
     virtual std::unique_ptr<State> request2();
     virtual std::unique_ptr<State> request3();
