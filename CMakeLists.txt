@@ -19,6 +19,7 @@ find_package(fmt CONFIG REQUIRED)
 
 add_subdirectory(src/abstract_factory)
 add_subdirectory(src/adapter)
+add_subdirectory(src/bridge)
 add_subdirectory(src/command/examples/with_classes)
 add_subdirectory(src/command/examples/with_functions)
 add_subdirectory(src/state/with_return_state)
