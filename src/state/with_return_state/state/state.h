@@ -7,7 +7,6 @@ class State {
 
 protected:
     void show_unhandled_request_message(const char* request);
-    void show_transition_message(const char* request, const char* next_state);
 
 public:
     State(const char* name) : name_{name} {}
