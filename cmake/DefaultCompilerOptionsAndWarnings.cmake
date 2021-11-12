@@ -1,13 +1,25 @@
 # Define default compiler options and warnings for Clang, GCC and MSVC.
 
+#https://clang.llvm.org/docs/DiagnosticsReference.html
+#https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html
+#https://docs.microsoft.com/en-us/cpp/preprocessor/compiler-warnings-that-are-off-by-default?view=msvc-170
+
 # shared options between Clang, Clang-cl and GCC
 set(SHARED_CLANG_AND_CLANG_CL_AND_GCC_OPTIONS
-        -Wextra
+        -Wcast-align
         -Wconversion
-        -Wsign-conversion
+        -Wdouble-promotion
+        -Wextra
         -Wfloat-equal
+        -Wformat=2
+        -Wimplicit-fallthrough
+        -Wmisleading-indentation
+        -Wnon-virtual-dtor
+        -Wnull-dereference
         -Wold-style-cast
+        -Woverloaded-virtual
         -Wshadow
+        -Wsign-conversion
         -Wunused)
 
 # Clang specific options
@@ -15,14 +27,18 @@ set(DEFAULT_CLANG_OPTIONS
         ${SHARED_CLANG_AND_CLANG_CL_AND_GCC_OPTIONS}
         -Wall
         -Wmost
-        -pedantic
+        -Wpedantic
         -fcolor-diagnostics)
 
 # GCC specific options
 set(DEFAULT_GCC_OPTIONS
         ${SHARED_CLANG_AND_CLANG_CL_AND_GCC_OPTIONS}
         -Wall
-        -pedantic
+        -Wduplicated-branches
+        -Wduplicated-cond
+        -Wlogical-op
+        -Wpedantic
+        -Wuseless-cast
         -fdiagnostics-color)
 
 # MSVC specific options
