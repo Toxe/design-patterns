@@ -13,7 +13,7 @@ public:
 
     virtual ~State() = default;
 
-    const char* name() const { return name_; };
+    [[nodiscard]] const char* name() const { return name_; };
 
     virtual void request1(Context*) { show_unhandled_request_message("request1"); };
     virtual void request2(Context*) { show_unhandled_request_message("request2"); };
