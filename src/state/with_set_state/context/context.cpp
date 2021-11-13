@@ -18,16 +18,16 @@ std::string Context::request1()
 {
     state_->request1(this);
     return state_->name();
-};
+}
 
 std::string Context::request2()
 {
     state_->request2(this);
     return state_->name();
-};
+}
 
 std::string Context::request3()
 {
     state_->request3(this);
     return state_->name();
-};
+}

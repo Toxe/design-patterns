@@ -19,16 +19,16 @@ std::string Context::request1()
 {
     update_state(state_->request1());
     return state_->name();
-};
+}
 
 std::string Context::request2()
 {
     update_state(state_->request2());
     return state_->name();
-};
+}
 
 std::string Context::request3()
 {
     update_state(state_->request3());
     return state_->name();
-};
+}

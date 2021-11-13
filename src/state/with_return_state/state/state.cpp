@@ -11,16 +11,16 @@ std::unique_ptr<State> State::request1()
 {
     show_unhandled_request_message("request1");
     return nullptr;
-};
+}
 
 std::unique_ptr<State> State::request2()
 {
     show_unhandled_request_message("request2");
     return nullptr;
-};
+}
 
 std::unique_ptr<State> State::request3()
 {
     show_unhandled_request_message("request3");
     return nullptr;
-};
+}
