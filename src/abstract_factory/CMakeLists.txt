@@ -3,7 +3,8 @@ add_executable(abstract_factory
         abstract_products/abstract_factory.h
         abstract_products/abstract_product_a.h
         abstract_products/abstract_product_b.h
-        client/client.cpp client/client.h
+        client/client.cpp
+        client/client.h
         product1/factory1.h
         product1/product_a1.h
         product1/product_b1.h
@@ -22,7 +23,17 @@ add_custom_command(TARGET abstract_factory POST_BUILD COMMAND ${CMAKE_COMMAND} -
 
 # Tests
 if (BUILD_TESTING)
-    add_executable(abstract_factory_tests tests.cpp)
+    add_executable(abstract_factory_tests
+            tests.cpp
+            abstract_products/abstract_factory.h
+            abstract_products/abstract_product_a.h
+            abstract_products/abstract_product_b.h
+            product1/factory1.h
+            product1/product_a1.h
+            product1/product_b1.h
+            product2/factory2.h
+            product2/product_a2.h
+            product2/product_b2.h)
 
     set_target_properties(abstract_factory_tests PROPERTIES CXX_EXTENSIONS OFF OUTPUT_NAME tests)
     target_compile_features(abstract_factory_tests PUBLIC cxx_std_20)
