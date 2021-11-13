@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 class Target;
 
-void client(Target& target);
+std::string client(Target& target);

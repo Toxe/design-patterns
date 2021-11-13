@@ -1,6 +1,8 @@
 #pragma once
 
+#include <string>
+
 class Adaptee {
-    public:
-        void specific_request();
+public:
+    std::string specific_request();
 };

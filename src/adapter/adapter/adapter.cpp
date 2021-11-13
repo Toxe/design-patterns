@@ -2,7 +2,7 @@
 
 #include "adaptee/adaptee.h"
 
-void Adapter::request()
+std::string Adapter::request()
 {
-    adaptee_.specific_request();
+    return adaptee_.specific_request();
 }

@@ -1,6 +1,8 @@
 #pragma once
 
+#include <string>
+
 class Target {
 public:
-    virtual void request() = 0;
+    virtual std::string request() = 0;
 };

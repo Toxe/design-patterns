@@ -2,7 +2,7 @@
 
 #include "target/target.h"
 
-void client(Target& target)
+std::string client(Target& target)
 {
-    target.request();
+    return target.request();
 }

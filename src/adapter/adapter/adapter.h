@@ -10,5 +10,5 @@ class Adapter : public Target {
 public:
     Adapter(Adaptee& adaptee) : adaptee_{adaptee} { }
 
-    virtual void request() override;
+    virtual std::string request() override;
 };
