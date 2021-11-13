@@ -15,17 +15,20 @@ void Context::update_state(std::unique_ptr<State> next_state)
     }
 }
 
-void Context::request1()
+std::string Context::request1()
 {
     update_state(state_->request1());
+    return state_->name();
 };
 
-void Context::request2()
+std::string Context::request2()
 {
     update_state(state_->request2());
+    return state_->name();
 };
 
-void Context::request3()
+std::string Context::request3()
 {
     update_state(state_->request3());
+    return state_->name();
 };

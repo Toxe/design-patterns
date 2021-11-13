@@ -1,6 +1,7 @@
 #pragma once
 
 #include <memory>
+#include <string>
 
 #include "state/state.h"
 
@@ -12,7 +13,7 @@ class Context {
 public:
     Context();
 
-    void request1();
-    void request2();
-    void request3();
+    std::string request1();
+    std::string request2();
+    std::string request3();
 };

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <memory>
+#include <string>
 
 #include "state/state.h"
 
@@ -12,7 +13,7 @@ public:
 
     void set_state(std::unique_ptr<State> new_state);
 
-    void request1();
-    void request2();
-    void request3();
+    std::string request1();
+    std::string request2();
+    std::string request3();
 };

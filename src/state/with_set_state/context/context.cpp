@@ -14,17 +14,20 @@ void Context::set_state(std::unique_ptr<State> new_state)
     state_ = std::move(new_state);
 }
 
-void Context::request1()
+std::string Context::request1()
 {
     state_->request1(this);
+    return state_->name();
 };
 
-void Context::request2()
+std::string Context::request2()
 {
     state_->request2(this);
+    return state_->name();
 };
 
-void Context::request3()
+std::string Context::request3()
 {
     state_->request3(this);
+    return state_->name();
 };
