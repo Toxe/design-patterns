@@ -15,7 +15,7 @@ add_executable(abstract_factory
 set_target_properties(abstract_factory PROPERTIES CXX_EXTENSIONS OFF)
 target_compile_features(abstract_factory PUBLIC cxx_std_20)
 target_compile_options(abstract_factory PRIVATE ${SANITIZER_FLAGS} ${DEFAULT_COMPILER_OPTIONS_AND_WARNINGS})
-target_include_directories(abstract_factory PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} include)
+target_include_directories(abstract_factory PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(abstract_factory PRIVATE ${SANITIZER_FLAGS} fmt::fmt)
 
 # copy to build directory
@@ -38,6 +38,7 @@ if (BUILD_TESTING)
     set_target_properties(abstract_factory_tests PROPERTIES CXX_EXTENSIONS OFF OUTPUT_NAME tests)
     target_compile_features(abstract_factory_tests PUBLIC cxx_std_20)
     target_compile_options(abstract_factory_tests PRIVATE ${DEFAULT_COMPILER_OPTIONS_AND_WARNINGS})
+    target_include_directories(abstract_factory_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
     target_link_libraries(abstract_factory_tests PRIVATE Catch2::Catch2WithMain)
 
     add_test(NAME abstract_factory_tests COMMAND abstract_factory_tests)

@@ -12,7 +12,7 @@ add_executable(bridge
 set_target_properties(bridge PROPERTIES CXX_EXTENSIONS OFF)
 target_compile_features(bridge PUBLIC cxx_std_20)
 target_compile_options(bridge PRIVATE ${SANITIZER_FLAGS} ${DEFAULT_COMPILER_OPTIONS_AND_WARNINGS})
-target_include_directories(bridge PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} include)
+target_include_directories(bridge PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(bridge PRIVATE ${SANITIZER_FLAGS} fmt::fmt)
 
 # copy to build directory
