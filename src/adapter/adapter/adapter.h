@@ -11,5 +11,5 @@ public:
     Adapter(Adaptee& adaptee) : adaptee_{adaptee} { }
     virtual ~Adapter() = default;
 
-    virtual std::string request() override;
+    std::string request() override;
 };
