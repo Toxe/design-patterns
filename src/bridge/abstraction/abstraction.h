@@ -11,6 +11,7 @@ class Abstraction {
 
 public:
     Abstraction(std::vector<int> values, Implementor& imp) : values_{values}, imp_{imp} { }
+    virtual ~Abstraction() = default;
 
     virtual std::string print_values();
 

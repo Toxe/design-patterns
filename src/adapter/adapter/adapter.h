@@ -9,6 +9,7 @@ class Adapter : public Target {
 
 public:
     Adapter(Adaptee& adaptee) : adaptee_{adaptee} { }
+    virtual ~Adapter() = default;
 
     virtual std::string request() override;
 };
