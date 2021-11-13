@@ -15,7 +15,7 @@ public:
 
     [[nodiscard]] const char* name() const { return name_; };
 
-    virtual void request1(Context*) { show_unhandled_request_message("request1"); };
-    virtual void request2(Context*) { show_unhandled_request_message("request2"); };
-    virtual void request3(Context*) { show_unhandled_request_message("request3"); };
+    virtual void request1(Context* /* context */) { show_unhandled_request_message("request1"); };
+    virtual void request2(Context* /* context */) { show_unhandled_request_message("request2"); };
+    virtual void request3(Context* /* context */) { show_unhandled_request_message("request3"); };
 };
