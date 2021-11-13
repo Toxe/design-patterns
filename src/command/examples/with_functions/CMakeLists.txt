@@ -2,6 +2,7 @@ add_executable(command_with_functions
         main.cpp
         client/client.cpp
         client/client.h
+        client/client_commands.cpp
         client/client_commands.h
         include/command.h
         include/keyboard_events.h
@@ -9,6 +10,7 @@ add_executable(command_with_functions
         invoker/invoker.h
         receiver/receiver.cpp
         receiver/receiver.h
+        receiver/receiver_commands.cpp
         receiver/receiver_commands.h)
 
 set_target_properties(command_with_functions PROPERTIES CXX_EXTENSIONS OFF)
@@ -26,6 +28,7 @@ if (BUILD_TESTING)
             tests.cpp
             client/client.cpp
             client/client.h
+            client/client_commands.cpp
             client/client_commands.h
             include/command.h
             include/keyboard_events.h
@@ -33,6 +36,7 @@ if (BUILD_TESTING)
             invoker/invoker.h
             receiver/receiver.cpp
             receiver/receiver.h
+            receiver/receiver_commands.cpp
             receiver/receiver_commands.h)
 
     set_target_properties(command_with_functions_tests PROPERTIES CXX_EXTENSIONS OFF OUTPUT_NAME tests)
