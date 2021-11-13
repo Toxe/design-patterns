@@ -27,6 +27,10 @@ void Client::run()
     input_handler_.event(KeyPressedEvent::G);
     input_handler_.event(KeyPressedEvent::Right);
     input_handler_.event(KeyPressedEvent::G);
+}
+
+void Client::quit()
+{
     input_handler_.event(KeyPressedEvent::Escape);
     input_handler_.event(KeyPressedEvent::Escape);
 }

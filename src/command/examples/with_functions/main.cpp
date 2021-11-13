@@ -6,4 +6,5 @@ int main()
 
     client.setup();
     client.run();
+    client.quit();
 }
