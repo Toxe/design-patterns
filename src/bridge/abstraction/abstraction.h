@@ -1,5 +1,6 @@
 #pragma once
 
+#include <string>
 #include <vector>
 
 class Implementor;
@@ -11,7 +12,7 @@ class Abstraction {
 public:
     Abstraction(std::vector<int> values, Implementor& imp) : values_{values}, imp_{imp} { }
 
-    virtual void print_values();
+    virtual std::string print_values();
 
 protected:
     Implementor& imp() { return imp_; };

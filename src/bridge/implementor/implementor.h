@@ -1,7 +1,9 @@
 #pragma once
 
+#include <string>
+
 class Implementor {
 public:
-    virtual void print_value(const int value) = 0;
-    virtual void print_delimiter() = 0;
+    virtual std::string print_value(const int value) = 0;
+    virtual std::string print_delimiter() = 0;
 };

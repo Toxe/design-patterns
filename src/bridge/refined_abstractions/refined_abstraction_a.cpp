@@ -1,13 +1,15 @@
 #include "refined_abstraction_a.h"
 
-#include <fmt/core.h>
+#include <sstream>
 
-void RefinedAbstractionA::print_values()
+std::string RefinedAbstractionA::print_values()
 {
+    std::stringstream sstream;
+
     for (const auto i : values()) {
-        imp().print_value(i);
-        imp().print_delimiter();
+        sstream << imp().print_value(i);
+        sstream << imp().print_delimiter();
     }
 
-    fmt::print("\n");
+    return sstream.str();
 }

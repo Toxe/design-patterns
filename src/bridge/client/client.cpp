@@ -2,7 +2,7 @@
 
 #include "abstraction/abstraction.h"
 
-void client(Abstraction& abstraction)
+std::string client(Abstraction& abstraction)
 {
-    abstraction.print_values();
+    return abstraction.print_values();
 }

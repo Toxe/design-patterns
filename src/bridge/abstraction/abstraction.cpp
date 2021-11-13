@@ -1,5 +1,7 @@
 #include "abstraction.h"
+#include <string>
 
-void Abstraction::print_values()
+std::string Abstraction::print_values()
 {
+    return "";
 }

@@ -2,12 +2,12 @@
 
 #include <fmt/core.h>
 
-void ConcreteImplementor1::print_value(const int value)
+std::string ConcreteImplementor1::print_value(const int value)
 {
-    fmt::print("{}", value);
+    return fmt::format("{}", value);
 }
 
-void ConcreteImplementor1::print_delimiter()
+std::string ConcreteImplementor1::print_delimiter()
 {
-    fmt::print(", ");
+    return fmt::format(", ");
 }

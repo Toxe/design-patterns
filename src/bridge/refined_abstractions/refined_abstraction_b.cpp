@@ -1,19 +1,19 @@
 #include "refined_abstraction_b.h"
 
-#include <fmt/core.h>
+#include <sstream>
 
-void RefinedAbstractionB::print_values()
+std::string RefinedAbstractionB::print_values()
 {
+    std::stringstream sstream;
     int index = 1;
 
     for (const auto i : values()) {
-        fmt::print("value #{} = ", index);
-
-        imp().print_value(i);
-        imp().print_delimiter();
+        sstream << "value #" << index << " = ";
+        sstream << imp().print_value(i);
+        sstream << imp().print_delimiter();
 
         ++index;
     }
 
-    fmt::print("\n");
+    return sstream.str();
 }

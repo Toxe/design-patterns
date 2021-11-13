@@ -4,6 +4,6 @@
 
 class ConcreteImplementor1 : public Implementor {
 public:
-    virtual void print_value(const int value) override;
-    virtual void print_delimiter() override;
+    virtual std::string print_value(const int value) override;
+    virtual std::string print_delimiter() override;
 };

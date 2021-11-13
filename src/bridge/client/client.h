@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 class Abstraction;
 
-void client(Abstraction& abstraction);
+std::string client(Abstraction& abstraction);
