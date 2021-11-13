@@ -1,11 +1,15 @@
 add_executable(state_with_return_state
-    main.cpp
-    concrete_states/concrete_state_a.h concrete_states/concrete_state_a.cpp
-    concrete_states/concrete_state_b.h concrete_states/concrete_state_b.cpp
-    concrete_states/concrete_state_c.h concrete_states/concrete_state_c.cpp
-    context/context.cpp context/context.h
-    state/state.cpp state/state.h
-)
+        main.cpp
+        concrete_states/concrete_state_a.cpp
+        concrete_states/concrete_state_a.h
+        concrete_states/concrete_state_b.cpp
+        concrete_states/concrete_state_b.h
+        concrete_states/concrete_state_c.cpp
+        concrete_states/concrete_state_c.h
+        context/context.cpp
+        context/context.h
+        state/state.cpp
+        state/state.h)
 
 set_target_properties(state_with_return_state PROPERTIES CXX_EXTENSIONS OFF)
 target_compile_features(state_with_return_state PUBLIC cxx_std_20)

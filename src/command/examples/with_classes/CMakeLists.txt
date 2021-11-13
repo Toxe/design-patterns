@@ -1,13 +1,15 @@
 add_executable(command_with_classes
-    main.cpp
-    client/client_commands.h
-    client/client.cpp client/client.h
-    include/command.h
-    include/keyboard_events.h
-    invoker/invoker.cpp invoker/invoker.h
-    receiver/receiver_commands.h
-    receiver/receiver.cpp receiver/receiver.h
-)
+        main.cpp
+        client/client.cpp
+        client/client.h
+        client/client_commands.h
+        include/command.h
+        include/keyboard_events.h
+        invoker/invoker.cpp
+        invoker/invoker.h
+        receiver/receiver.cpp
+        receiver/receiver.h
+        receiver/receiver_commands.h)
 
 set_target_properties(command_with_classes PROPERTIES CXX_EXTENSIONS OFF)
 target_compile_features(command_with_classes PUBLIC cxx_std_20)
