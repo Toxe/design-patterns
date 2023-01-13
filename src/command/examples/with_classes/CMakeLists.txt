@@ -13,9 +13,10 @@ add_executable(command_with_classes
 
 set_target_properties(command_with_classes PROPERTIES CXX_EXTENSIONS OFF)
 target_compile_features(command_with_classes PUBLIC cxx_std_20)
-target_compile_options(command_with_classes PRIVATE ${SANITIZER_FLAGS} ${DEFAULT_COMPILER_OPTIONS_AND_WARNINGS})
+target_compile_options(command_with_classes PRIVATE ${SANITIZER_COMPILE_OPTIONS} ${DEFAULT_COMPILER_OPTIONS} ${DEFAULT_COMPILER_WARNINGS})
+target_link_options(command_with_classes PRIVATE ${SANITIZER_LINK_OPTIONS})
+target_link_libraries(command_with_classes PRIVATE ${SANITIZER_LINK_LIBRARIES} fmt::fmt)
 target_include_directories(command_with_classes PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} include)
-target_link_libraries(command_with_classes PRIVATE ${SANITIZER_FLAGS} fmt::fmt)
 
 # copy to build directory
 add_custom_command(TARGET command_with_classes POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:command_with_classes> ${CMAKE_BINARY_DIR})
@@ -37,9 +38,10 @@ if (BUILD_TESTING)
 
     set_target_properties(command_with_classes_tests PROPERTIES CXX_EXTENSIONS OFF OUTPUT_NAME tests)
     target_compile_features(command_with_classes_tests PUBLIC cxx_std_20)
-    target_compile_options(command_with_classes_tests PRIVATE ${DEFAULT_COMPILER_OPTIONS_AND_WARNINGS})
+    target_compile_options(command_with_classes_tests PRIVATE ${SANITIZER_COMPILE_OPTIONS} ${DEFAULT_COMPILER_OPTIONS} ${DEFAULT_COMPILER_WARNINGS})
+    target_link_options(command_with_classes_tests PRIVATE ${SANITIZER_LINK_OPTIONS})
+    target_link_libraries(command_with_classes_tests PRIVATE ${SANITIZER_LINK_LIBRARIES} Catch2::Catch2WithMain fmt::fmt)
     target_include_directories(command_with_classes_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} include)
-    target_link_libraries(command_with_classes_tests PRIVATE Catch2::Catch2WithMain fmt::fmt)
 
     add_test(NAME command_with_classes_tests COMMAND command_with_classes_tests)
 endif ()
