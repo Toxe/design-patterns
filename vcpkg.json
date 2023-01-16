@@ -14,6 +14,10 @@
         {
             "name": "fmt",
             "version>=": "9.1.0#1"
+        },
+        {
+            "name": "nlohmann-json",
+            "version>=": "3.11.2"
         }
     ]
 }
