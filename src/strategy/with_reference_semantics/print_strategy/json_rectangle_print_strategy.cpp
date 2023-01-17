@@ -6,9 +6,10 @@ std::string JSONRectanglePrintStrategy::print(const Rectangle& rectangle)
 {
     nlohmann::json json;
 
-    json["shape"] = "rectangle";
+    json["shape"] = "Rectangle";
+    json["name"] = rectangle.name();
     json["properties"]["width"] = rectangle.width();
     json["properties"]["height"] = rectangle.height();
 
-    return json.dump();
+    return pretty_print_ ? json.dump(indent_width_) : json.dump();
 }

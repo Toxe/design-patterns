@@ -6,8 +6,9 @@ std::string JSONCirclePrintStrategy::print(const Circle& circle)
 {
     nlohmann::json json;
 
-    json["shape"] = "circle";
+    json["shape"] = "Circle";
+    json["name"] = circle.name();
     json["properties"]["radius"] = circle.radius();
 
-    return json.dump();
+    return pretty_print_ ? json.dump(indent_width_) : json.dump();
 }

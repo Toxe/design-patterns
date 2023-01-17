@@ -10,8 +10,8 @@ class Circle : public Shape {
 public:
     using CirclePrintStrategy = PrintStrategy<Circle>;
 
-    Circle(std::unique_ptr<CirclePrintStrategy> printer, const int radius)
-        : printer_{std::move(printer)}, radius_{radius} { }
+    Circle(const char* name, const int radius, std::unique_ptr<CirclePrintStrategy> printer)
+        : Shape{name}, printer_{std::move(printer)}, radius_{radius} { }
 
     std::string print() const override { return printer_->print(*this); }
 

@@ -14,15 +14,15 @@ int main()
 {
     std::vector<std::unique_ptr<Shape>> shapes;
 
-    shapes.emplace_back(std::make_unique<Circle>(std::make_unique<SimpleCirclePrintStrategy>(), 5));
-    shapes.emplace_back(std::make_unique<Circle>(std::make_unique<SimpleCirclePrintStrategy>(), 3));
-    shapes.emplace_back(std::make_unique<Rectangle>(std::make_unique<SimpleRectanglePrintStrategy>(), 2, 4));
-    shapes.emplace_back(std::make_unique<Rectangle>(std::make_unique<SimpleRectanglePrintStrategy>(), 7, 3));
+    shapes.emplace_back(std::make_unique<Circle>("circle 1", 3, std::make_unique<SimpleCirclePrintStrategy>(true)));
+    shapes.emplace_back(std::make_unique<Circle>("circle 2", 5, std::make_unique<SimpleCirclePrintStrategy>(false)));
+    shapes.emplace_back(std::make_unique<Rectangle>("rectangle 1", 7, 3, std::make_unique<SimpleRectanglePrintStrategy>(true)));
+    shapes.emplace_back(std::make_unique<Rectangle>("rectangle 2", 2, 4, std::make_unique<SimpleRectanglePrintStrategy>(false)));
 
-    shapes.emplace_back(std::make_unique<Circle>(std::make_unique<JSONCirclePrintStrategy>(), 5));
-    shapes.emplace_back(std::make_unique<Circle>(std::make_unique<JSONCirclePrintStrategy>(), 3));
-    shapes.emplace_back(std::make_unique<Rectangle>(std::make_unique<JSONRectanglePrintStrategy>(), 2, 4));
-    shapes.emplace_back(std::make_unique<Rectangle>(std::make_unique<JSONRectanglePrintStrategy>(), 7, 3));
+    shapes.emplace_back(std::make_unique<Circle>("circle 3", 5, std::make_unique<JSONCirclePrintStrategy>(false)));
+    shapes.emplace_back(std::make_unique<Rectangle>("rectangle 3", 2, 4, std::make_unique<JSONRectanglePrintStrategy>(false)));
+    shapes.emplace_back(std::make_unique<Circle>("circle 4", 3, std::make_unique<JSONCirclePrintStrategy>(true, 4)));
+    shapes.emplace_back(std::make_unique<Rectangle>("rectangle 4", 7, 3, std::make_unique<JSONRectanglePrintStrategy>(true, 4)));
 
     for (const auto& shape : shapes)
         fmt::print("{}\n", shape->print());

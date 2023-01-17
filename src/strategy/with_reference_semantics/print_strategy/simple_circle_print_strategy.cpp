@@ -4,5 +4,8 @@
 
 std::string SimpleCirclePrintStrategy::print(const Circle& circle)
 {
-    return fmt::format("Circle: radius={}", circle.radius());
+    if (show_properties_)
+        return fmt::format("[Circle] {}: radius={}", circle.name(), circle.radius());
+
+    return fmt::format("[Circle] {}", circle.name());
 }

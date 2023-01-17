@@ -10,8 +10,8 @@ class Rectangle : public Shape {
 public:
     using RectanglePrintStrategy = PrintStrategy<Rectangle>;
 
-    Rectangle(std::unique_ptr<RectanglePrintStrategy> printer, const int width, const int height)
-        : printer_{std::move(printer)}, width_{width}, height_{height} { }
+    Rectangle(const char* name, const int width, const int height, std::unique_ptr<RectanglePrintStrategy> printer)
+        : Shape{name}, printer_{std::move(printer)}, width_{width}, height_{height} { }
 
     std::string print() const override { return printer_->print(*this); }
 

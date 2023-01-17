@@ -4,5 +4,8 @@
 
 std::string SimpleRectanglePrintStrategy::print(const Rectangle& rectangle)
 {
-    return fmt::format("Rectangle: width={}, height={}", rectangle.width(), rectangle.height());
+    if (show_properties_)
+        return fmt::format("[Rectangle] {}: width={}, height={}", rectangle.name(), rectangle.width(), rectangle.height());
+
+    return fmt::format("[Rectangle] {}", rectangle.name());
 }
