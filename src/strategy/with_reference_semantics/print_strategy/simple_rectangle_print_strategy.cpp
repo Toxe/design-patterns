@@ -2,7 +2,7 @@
 
 #include "fmt/core.h"
 
-std::string SimpleRectanglePrintStrategy::print(const Rectangle& rectangle)
+std::string SimpleRectanglePrintStrategy::print(const Rectangle& rectangle) const
 {
     if (show_properties_)
         return fmt::format("[Rectangle] {}: width={}, height={}", rectangle.name(), rectangle.width(), rectangle.height());

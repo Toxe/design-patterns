@@ -2,7 +2,7 @@
 
 #include "fmt/core.h"
 
-std::string SimpleCirclePrintStrategy::print(const Circle& circle)
+std::string SimpleCirclePrintStrategy::print(const Circle& circle) const
 {
     if (show_properties_)
         return fmt::format("[Circle] {}: radius={}", circle.name(), circle.radius());

@@ -2,7 +2,7 @@
 
 #include "nlohmann/json.hpp"
 
-std::string JSONCirclePrintStrategy::print(const Circle& circle)
+std::string JSONCirclePrintStrategy::print(const Circle& circle) const
 {
     nlohmann::json json;
 

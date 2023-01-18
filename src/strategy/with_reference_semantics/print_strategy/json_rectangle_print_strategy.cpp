@@ -2,7 +2,7 @@
 
 #include "nlohmann/json.hpp"
 
-std::string JSONRectanglePrintStrategy::print(const Rectangle& rectangle)
+std::string JSONRectanglePrintStrategy::print(const Rectangle& rectangle) const
 {
     nlohmann::json json;
 
