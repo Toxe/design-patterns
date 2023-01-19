@@ -33,17 +33,15 @@ TEST_CASE("Commands")
 
 TEST_CASE("Calculator")
 {
+    Calculator calculator;
+
     SECTION("Initial value is zero")
     {
-        const Calculator calculator;
-
         CHECK(calculator.value() == 0);
     }
 
-    SECTION("Compute and Undo")
+    SECTION("Compute, Undo and Redo")
     {
-        Calculator calculator;
-
         // compute
         calculator.compute(std::make_unique<Add>(3));
         CHECK(calculator.value() == 3);
@@ -76,8 +74,73 @@ TEST_CASE("Calculator")
         calculator.undo();
         CHECK(calculator.value() == 0);
 
-        // empty command stack
+        // redo
+        calculator.redo();
+        CHECK(calculator.value() == 3);
+
+        calculator.redo();
+        CHECK(calculator.value() == 5);
+
+        calculator.redo();
+        CHECK(calculator.value() == 10);
+
+        calculator.redo();
+        CHECK(calculator.value() == 20);
+
+        calculator.redo();
+        CHECK(calculator.value() == 60);
+    }
+
+    SECTION("empty undo and redo stacks")
+    {
+        calculator.compute(std::make_unique<Add>(1));
+        calculator.compute(std::make_unique<Add>(2));
+        calculator.compute(std::make_unique<Add>(3));
+        CHECK(calculator.value() == 6);
+
+        // undo
+        calculator.undo();
+        calculator.undo();
         calculator.undo();
         CHECK(calculator.value() == 0);
+
+        // empty undo stack
+        calculator.undo();
+        CHECK(calculator.value() == 0);
+
+        calculator.undo();
+        CHECK(calculator.value() == 0);
+
+        // redo
+        calculator.redo();
+        calculator.redo();
+        calculator.redo();
+        CHECK(calculator.value() == 6);
+
+        // empty redo stack
+        calculator.redo();
+        CHECK(calculator.value() == 6);
+
+        calculator.redo();
+        CHECK(calculator.value() == 6);
+    }
+
+    SECTION("clear redo stack after executing new commands")
+    {
+        calculator.compute(std::make_unique<Add>(1));
+        calculator.compute(std::make_unique<Add>(2));
+        calculator.compute(std::make_unique<Add>(3));
+        CHECK(calculator.value() == 6);
+
+        calculator.undo();
+        calculator.undo();
+        CHECK(calculator.value() == 1);
+
+        calculator.compute(std::make_unique<Add>(10));
+        CHECK(calculator.value() == 11);
+
+        // empty redo stack
+        calculator.redo();
+        CHECK(calculator.value() == 11);
     }
 }

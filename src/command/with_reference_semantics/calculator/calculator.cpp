@@ -5,16 +5,32 @@
 void Calculator::compute(std::unique_ptr<Command> command)
 {
     current_value_ = command->execute(current_value_);
-    command_stack_.push(std::move(command));
+    undo_stack_.push(std::move(command));
+    redo_stack_ = {};
 }
 
 void Calculator::undo()
 {
-    if (command_stack_.empty())
+    if (undo_stack_.empty())
         return;
 
-    auto command = std::move(command_stack_.top());
-    command_stack_.pop();
+    auto command = std::move(undo_stack_.top());
+    undo_stack_.pop();
 
     current_value_ = command->undo(current_value_);
+
+    redo_stack_.push(std::move(command));
+}
+
+void Calculator::redo()
+{
+    if (redo_stack_.empty())
+        return;
+
+    auto command = std::move(redo_stack_.top());
+    redo_stack_.pop();
+
+    current_value_ = command->execute(current_value_);
+
+    undo_stack_.push(std::move(command));
 }
