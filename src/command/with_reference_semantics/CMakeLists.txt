@@ -35,3 +35,19 @@ if(BUILD_TESTING)
 
     add_test(NAME command_with_reference_semantics_tests COMMAND command_with_reference_semantics_tests)
 endif()
+
+# benchmark
+add_executable(command_with_reference_semantics_benchmark
+        benchmark.cpp
+        command/command.hpp
+        command/add.hpp
+        command/multiply.hpp
+        calculator/calculator.cpp
+        calculator/calculator.hpp
+)
+
+set_target_properties(command_with_reference_semantics_benchmark PROPERTIES CXX_EXTENSIONS OFF OUTPUT_NAME benchmark)
+target_compile_features(command_with_reference_semantics_benchmark PUBLIC cxx_std_20)
+target_compile_options(command_with_reference_semantics_benchmark PRIVATE ${SANITIZER_COMPILE_OPTIONS} ${DEFAULT_COMPILER_OPTIONS} ${DEFAULT_COMPILER_WARNINGS})
+target_link_options(command_with_reference_semantics_benchmark PRIVATE ${SANITIZER_LINK_OPTIONS})
+target_include_directories(command_with_reference_semantics_benchmark PRIVATE ${NANOBENCH_INCLUDE_DIRS})
