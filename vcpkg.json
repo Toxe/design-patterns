@@ -16,6 +16,10 @@
             "version>=": "9.1.0#1"
         },
         {
+            "name": "nanobench",
+            "version>=": "4.3.9"
+        },
+        {
             "name": "nlohmann-json",
             "version>=": "3.11.2"
         }

@@ -22,6 +22,8 @@ include(cmake/Sanitizers.cmake)
 find_package(fmt CONFIG REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
 
+find_path(NANOBENCH_INCLUDE_DIRS nanobench.h)
+
 add_subdirectory(src/abstract_factory)
 add_subdirectory(src/adapter)
 add_subdirectory(src/bridge)
