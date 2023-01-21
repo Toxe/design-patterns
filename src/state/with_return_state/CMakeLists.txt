@@ -18,9 +18,6 @@ target_link_options(state_with_return_state PRIVATE ${SANITIZER_LINK_OPTIONS})
 target_link_libraries(state_with_return_state PRIVATE ${SANITIZER_LINK_LIBRARIES} fmt::fmt)
 target_include_directories(state_with_return_state PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
-# copy to build directory
-add_custom_command(TARGET state_with_return_state POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:state_with_return_state> ${CMAKE_BINARY_DIR})
-
 # Tests
 if (BUILD_TESTING)
     add_executable(state_with_return_state_tests

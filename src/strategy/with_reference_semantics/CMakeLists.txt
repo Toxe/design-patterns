@@ -20,9 +20,6 @@ target_compile_options(strategy_with_reference_semantics PRIVATE ${SANITIZER_COM
 target_link_options(strategy_with_reference_semantics PRIVATE ${SANITIZER_LINK_OPTIONS})
 target_link_libraries(strategy_with_reference_semantics PRIVATE ${SANITIZER_LINK_LIBRARIES} fmt::fmt nlohmann_json::nlohmann_json)
 
-# copy to build directory
-add_custom_command(TARGET strategy_with_reference_semantics POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:strategy_with_reference_semantics> ${CMAKE_BINARY_DIR})
-
 # Tests
 if(BUILD_TESTING)
     add_executable(strategy_with_reference_semantics_tests

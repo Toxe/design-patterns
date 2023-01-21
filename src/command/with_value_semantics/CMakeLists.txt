@@ -13,9 +13,6 @@ target_compile_options(command_with_value_semantics PRIVATE ${SANITIZER_COMPILE_
 target_link_options(command_with_value_semantics PRIVATE ${SANITIZER_LINK_OPTIONS})
 target_link_libraries(command_with_value_semantics PRIVATE ${SANITIZER_LINK_LIBRARIES} fmt::fmt)
 
-# copy to build directory
-add_custom_command(TARGET command_with_value_semantics POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:command_with_value_semantics> ${CMAKE_BINARY_DIR})
-
 # Tests
 if(BUILD_TESTING)
     add_executable(command_with_value_semantics_tests

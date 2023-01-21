@@ -21,9 +21,6 @@ target_link_options(bridge PRIVATE ${SANITIZER_LINK_OPTIONS})
 target_link_libraries(bridge PRIVATE ${SANITIZER_LINK_LIBRARIES} fmt::fmt)
 target_include_directories(bridge PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
-# copy to build directory
-add_custom_command(TARGET bridge POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:bridge> ${CMAKE_BINARY_DIR})
-
 # Tests
 if (BUILD_TESTING)
     add_executable(bridge_tests

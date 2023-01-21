@@ -19,9 +19,6 @@ target_link_options(abstract_factory PRIVATE ${SANITIZER_LINK_OPTIONS})
 target_link_libraries(abstract_factory PRIVATE ${SANITIZER_LINK_LIBRARIES} fmt::fmt)
 target_include_directories(abstract_factory PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
-# copy to build directory
-add_custom_command(TARGET abstract_factory POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:abstract_factory> ${CMAKE_BINARY_DIR})
-
 # Tests
 if (BUILD_TESTING)
     add_executable(abstract_factory_tests

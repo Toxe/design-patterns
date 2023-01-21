@@ -20,9 +20,6 @@ target_link_options(command_with_functions PRIVATE ${SANITIZER_LINK_OPTIONS})
 target_link_libraries(command_with_functions PRIVATE ${SANITIZER_LINK_LIBRARIES} fmt::fmt)
 target_include_directories(command_with_functions PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} include)
 
-# copy to build directory
-add_custom_command(TARGET command_with_functions POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:command_with_functions> ${CMAKE_BINARY_DIR})
-
 # Tests
 if (BUILD_TESTING)
     add_executable(command_with_functions_tests

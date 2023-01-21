@@ -15,9 +15,6 @@ target_link_options(adapter_object PRIVATE ${SANITIZER_LINK_OPTIONS})
 target_link_libraries(adapter_object PRIVATE ${SANITIZER_LINK_LIBRARIES} fmt::fmt)
 target_include_directories(adapter_object PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
-# copy to build directory
-add_custom_command(TARGET adapter_object POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:adapter_object> ${CMAKE_BINARY_DIR})
-
 # Tests
 if (BUILD_TESTING)
     add_executable(adapter_object_tests
